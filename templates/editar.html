@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Actualizar versión{% endblock %}
+{% block contenido %}
+<h1>Actualizar versión</h1>
+<p class="subtitulo">{{ instruccion["codigo"] }} · {{ instruccion["nombre"] }} ({{ instruccion["area"] }})</p>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+
+<form class="formulario" method="POST" action="/instrucciones/editar/{{ instruccion['id'] }}">
+  <label for="version">Versión guardada</label>
+  <input type="text" id="version" name="version" value="{{ request.form['version'] if request.method == 'POST' else instruccion['version'] }}">
+
+  <label for="version_aprobada">Versión aprobada por calidad</label>
+  <input type="text" id="version_aprobada" name="version_aprobada" value="{{ request.form['version_aprobada'] if request.method == 'POST' else instruccion['version_aprobada'] }}">
+
+  <div class="botones">
+    <button type="submit">Guardar cambios</button>
+    <a class="enlace-cancelar" href="/instrucciones">Cancelar</a>
+  </div>
+</form>
+{% endblock %}
