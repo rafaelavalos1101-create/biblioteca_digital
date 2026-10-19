@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}Biblioteca Digital{% endblock %} · Impresos Múltiples</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="encabezado">
+  <div class="marca">
+    <span class="marca-logo">IM</span>
+    <span>Biblioteca Digital de Instrucciones</span>
+  </div>
+  <nav class="menu">
+    <a href="/instrucciones">Instrucciones</a>
+    <a href="/instrucciones/nueva">Registrar</a>
+    <a href="/resumen">Resumen</a>
+  </nav>
+</header>
+<main class="contenido">
+{% block contenido %}{% endblock %}
+</main>
+<footer class="pie">Impresos Múltiples · Fase 2</footer>
+</body>
+</html>
