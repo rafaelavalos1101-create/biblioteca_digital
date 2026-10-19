@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block titulo %}Resumen{% endblock %}
+{% block contenido %}
+<h1>Resumen de instrucciones</h1>
+<p class="subtitulo">Total de instrucciones revisadas: <strong>{{ total }}</strong></p>
+
+<div class="tarjetas">
+  <div class="tarjeta vigente">
+    <span class="numero">{{ vigentes }}</span>
+    <span class="texto">Vigentes</span>
+  </div>
+  <div class="tarjeta desactualizada">
+    <span class="numero">{{ desactualizadas }}</span>
+    <span class="texto">Desactualizadas</span>
+  </div>
+  <div class="tarjeta por-revisar">
+    <span class="numero">{{ por_revisar }}</span>
+    <span class="texto">Por revisar</span>
+  </div>
+</div>
+
+{% if detalle %}
+<h2>Detalle</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Versión</th>
+      <th>Versión aprobada</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in detalle %}
+    <tr class="fila-{{ item.estado|lower|replace(' ', '-') }}">
+      <td>{{ item.datos["codigo"] }}</td>
+      <td>{{ item.datos["nombre"] }}</td>
+      <td>v{{ item.datos["version"] }}</td>
+      <td>v{{ item.datos["version_aprobada"] }}</td>
+      <td><span class="etiqueta {{ item.estado|lower|replace(' ', '-') }}">{{ item.estado }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
