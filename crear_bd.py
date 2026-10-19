@@ -44,3 +44,5 @@ for ejemplo in ejemplos:
 conexion.commit()
 conexion.close()
 print("Base de datos creada con", len(ejemplos), "instrucciones de ejemplo.")
+
+//ejemplos de crear computo
