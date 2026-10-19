@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block titulo %}Instrucciones{% endblock %}
+{% block contenido %}
+<div class="fila-titulo">
+  <h1>Listado de instrucciones</h1>
+  <a class="boton" href="/instrucciones/nueva">+ Registrar instrucción</a>
+</div>
+
+{% if instrucciones %}
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Área</th>
+      <th>Versión</th>
+      <th>Versión aprobada</th>
+      <th>Última actualización</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in instrucciones %}
+    <tr>
+      <td>{{ item.datos["codigo"] }}</td>
+      <td>{{ item.datos["nombre"] }}</td>
+      <td>{{ item.datos["area"] }}</td>
+      <td>v{{ item.datos["version"] }}</td>
+      <td>v{{ item.datos["version_aprobada"] }}</td>
+      <td>{{ item.datos["fecha_actualizacion"] }}</td>
+      <td><span class="etiqueta {{ item.estado|lower|replace(' ', '-') }}">{{ item.estado }}</span></td>
+      <td class="acciones">
+        <a class="boton boton-chico" href="/instrucciones/editar/{{ item.datos['id'] }}">Editar</a>
+        <form method="POST" action="/instrucciones/eliminar/{{ item.datos['id'] }}"
+              onsubmit="return confirm('¿Seguro que quieres eliminar la instrucción {{ item.datos['codigo'] }}?');">
+          <button type="submit" class="boton-chico boton-peligro">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="vacio">No hay instrucciones registradas.</p>
+{% endif %}
+{% endblock %}
