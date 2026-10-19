@@ -1,0 +1,258 @@
+/* style.css
+   Hoja de estilos única del sitio. Todas las páginas la usan. */
+
+/* ---- Colores y letra de todo el sitio ---- */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6fa;
+  color: #1f2a44;
+  margin: 0;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #e63946;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 32px;
+}
+
+.subtitulo {
+  color: #5a6478;
+  margin-top: -6px;
+}
+
+/* ---- Encabezado con menú ---- */
+.encabezado {
+  background: #1d3557;
+  color: #ffffff;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.marca-logo {
+  background: #e63946;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 18px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 32px;
+}
+
+.pie {
+  text-align: center;
+  color: #8a93a6;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.fila-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---- Tablas ---- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+th {
+  background: #1d3557;
+  color: #ffffff;
+  padding: 12px 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e3e7ef;
+  font-size: 14px;
+}
+
+.acciones {
+  display: flex;
+  gap: 6px;
+}
+
+.acciones form {
+  margin: 0;
+}
+
+.vacio {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* ---- Formularios ---- */
+.formulario {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 460px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input {
+  padding: 9px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c5ccd9;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: 2px solid #457b9d;
+}
+
+.botones {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---- Botones ---- */
+button,
+.boton {
+  padding: 10px 18px;
+  background: #457b9d;
+  color: #ffffff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover,
+.boton:hover {
+  background: #1d3557;
+}
+
+.boton-chico {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.boton-peligro {
+  background: #c1121f;
+}
+
+.boton-peligro:hover {
+  background: #8d0d17;
+}
+
+.enlace-cancelar {
+  color: #5a6478;
+}
+
+/* ---- Mensaje de error ---- */
+.error {
+  background: #ffe3e3;
+  color: #a4161a;
+  border-left: 4px solid #a4161a;
+  padding: 10px 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  max-width: 460px;
+}
+
+/* ---- Colores de cada clasificación ---- */
+/* Vigente = verde, Desactualizada = rojo, Por revisar = amarillo */
+.etiqueta {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.etiqueta.vigente { background: #d8f3dc; color: #1b6b35; }
+.etiqueta.desactualizada { background: #ffe3e3; color: #a4161a; }
+.etiqueta.por-revisar { background: #fff3c4; color: #8a6100; }
+
+tr.fila-vigente td { background: #f1fbf3; }
+tr.fila-desactualizada td { background: #fff4f4; }
+tr.fila-por-revisar td { background: #fffbea; }
+
+/* ---- Tarjetas del resumen ---- */
+.tarjetas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.tarjeta {
+  flex: 1;
+  min-width: 180px;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border-left: 6px solid;
+}
+
+.tarjeta .numero {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tarjeta .texto {
+  font-size: 16px;
+}
+
+.tarjeta.vigente { background: #d8f3dc; color: #1b6b35; border-color: #2d9a4f; }
+.tarjeta.desactualizada { background: #ffe3e3; color: #a4161a; border-color: #c1121f; }
+.tarjeta.por-revisar { background: #fff3c4; color: #8a6100; border-color: #e0a800; }
